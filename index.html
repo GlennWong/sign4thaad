@@ -93,6 +93,12 @@
 // };
 
 
+// Create an in-memory canvas just as big as your normal canvas. Call it can2
+// ctx2.drawImage(can1, 0, 0) // paint first canvas onto new canvas
+// ctx.clearRect(0, 0, width, height) // clear first canvas
+// ctx.drawImage(background, 0, 0) // draw image on first canvas
+// ctx.drawImage(can2, 0, 0) // draw the (saved) first canvas back to itself
+
 </script>
 </body>
 </html>
