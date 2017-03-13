@@ -1,0 +1,27 @@
+<!DOCTYPE>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>无标题文档</title>  
+
+<script>  
+window.onload = function(){  
+    var canvas = document.getElementById("c1");
+    console.log(canvas); 
+    var context = canvas.getContext("2d"); 
+    console.log(context); 
+    var img = new Image();  
+    img.src = "./bg.png"; 
+    console.log(img); 
+    img.onload = function() {  
+        context.drawImage(img, 0, 0);  
+    }  
+};  
+</script>
+
+</head>  
+  
+<body>  
+<canvas id="c1" width="400" height="400"></canvas>
+<!-- <canvas id="canvas" style="background-image: url(bg.jpg);" width="400" height="400"></canvas> -->
+</body>  
+</html>  

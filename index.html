@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>在线签名</title>
+    <meta content="" name="keywords" />
+    <meta name="viewport" content="width=640;user-scalable=no"/>
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+        background: #FFF;
+    }
+    #sign-bg {
+        width: 640px;
+        height: 1063px;
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    </style>
+    <div id='wx_pic' style='margin:0 auto;display:none;'>
+        <!-- <img src='thumbnail.jpg' /> -->
+    </div>
+</head>
+<body>
+<canvas id="sign-bg"></canvas>
+<script>
+// window.onload = function(){
+    var canvas = document.getElementById("sign-bg");
+    var context = canvas.getContext("2d");
+        context.globalCompositeOperation="destination-lighter";
+
+    var img = new Image();
+    img.src = "./bg.png";
+
+    img.onload = function() {
+        context.drawImage(img, 0, 0, window.innerWidth, window.innerHeight);
+    }
+
+    signName(context);
+    saveAsImage(canvas);
+
+    // 签名
+    function signName(context) {
+        context.font = 'bold 14px Consolas';
+        context.fillText('Beijing', 10, 10);
+    }
+
+    // 存图
+    function saveAsImage(canvas) {
+        var image = toNewCanvas(canvas).replace("image/png", "image/octet-stream");
+        // var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        window.location.href=image;
+    }
+
+    // 预览
+    function previewImage() {
+        var mycanvas = document.getElementById("thecanvas");
+        var image    = mycanvas.toDataURL("image/png");
+        var w=window.open('about:blank','image from canvas');
+        w.document.write("<img src='"+image+"' alt='from canvas'/>");
+    }
+
+    // 上图
+    function convertImageToCanvas(image) {
+        var canvas = document.createElement("canvas");
+        canvas.width = image.width;
+        canvas.height = image.height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        return canvas;
+    }
+
+    // 转换
+    function toNewCanvas(srcCanvas) {
+        destinationCanvas = document.createElement("canvas");
+        destinationCanvas.width = srcCanvas.width;
+        destinationCanvas.height = srcCanvas.height;
+
+        destCtx = destinationCanvas.getContext('2d');
+
+        //create a rectangle with the desired color
+        destCtx.fillStyle = "#FFFFFF";
+        destCtx.fillRect(0,0,srcCanvas.width,srcCanvas.height);
+
+        //draw the original canvas onto the destination canvas
+        destCtx.drawImage(srcCanvas, 0, 0);
+
+        //finally use the destinationCanvas.toDataURL() method to get the desired output;
+        return destinationCanvas.toDataURL();
+    }
+
+// };
+
+
+</script>
+</body>
+</html>
