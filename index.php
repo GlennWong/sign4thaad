@@ -1,10 +1,10 @@
 <?php
     $sign_name = trim($_GET['name']);
-    if (mb_strlen($sign_name) < 3) {
-        $sign_name = "  ". $sign_name;
-    }
     if (mb_strlen($sign_name) > 3) {
         $sign_name = mb_substr($sign_name, 0, 3);
+    }
+    if (mb_strlen($sign_name) < 3) {
+        $sign_name = "  ". $sign_name;
     }
 
     $origin_img = './bg.png';
