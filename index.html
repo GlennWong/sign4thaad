@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>在线签名</title>
+    <meta content="" name="keywords" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=640;user-scalable=no"/>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background: #FFF;
+        }
+        #sign-bg {
+            width: 640px;
+            height: 1063px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            background: #fff url('./bg.jpg') 50% 0 no-repeat;
+        }
+        #foot {
+            width: 640px;
+            height: 100px;
+            bottom: 0;
+            position: fixed;
+            background: #EEE;
+        }
+        #module {
+            position: relative;
+            margin: 0 auto;
+        }
+        #wx_pic {
+            margin: 0;
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="modal.css">
+    <div id='wx_pic'>
+        <!-- <img src='thumbnail.jpg' /> -->
+    </div>
+</head>
+<body>
+
+<div id="sign-bg">
+    <div id="foot">
+        <a href="#modal-fade" title="">点击生成</a>
+    </div>
+</div>
+
+
+<section class="modal--fade" id="modal-fade" tabindex="-1" role="dialog" aria-labelledby="label-fade" aria-hidden="true">
+    <div class="modal-inner">
+        <header><h2 id="label-fade">A fading modal</h2></header>
+        <div class="modal-content"><p>Content.</p></div>
+    </div>
+    <a href="#!" class="modal-close" title="Close this modal" data-dismiss="modal" data-close="Close">&times;</a>
+</section>
+<!-- JS for Modal -->
+<script src="modal.js"></script>
+</body>
+</html>
