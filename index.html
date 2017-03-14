@@ -23,13 +23,30 @@
         #foot {
             width: 640px;
             height: 100px;
+            text-align: center;
             bottom: 0;
             position: fixed;
-            background: #EEE;
+            /*background: #EEE;*/
         }
         #module {
             position: relative;
             margin: 0 auto;
+        }
+        .btn {
+            display: block-inline;
+            width: 150px;
+            height: 40px;
+            font-size: 18px;
+            background: #EEE;
+            padding: 1px 6px;
+            margin: 0;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        input {
+            width: ;
+            height: 30px;
+            padding: 5px 10px;
         }
         #wx_pic {
             margin: 0;
@@ -45,15 +62,18 @@
 
 <div id="sign-bg">
     <div id="foot">
-        <a href="#modal-fade" title="">点击生成</a>
+        <a class="btn" href="#modal-fade" title="">点击生成</a>
     </div>
 </div>
 
 
 <section class="modal--fade" id="modal-fade" tabindex="-1" role="dialog" aria-labelledby="label-fade" aria-hidden="true">
     <div class="modal-inner">
-        <header><h2 id="label-fade">A fading modal</h2></header>
-        <div class="modal-content"><p>Content.</p></div>
+        <header><h3 id="label-fade">填写姓名：</h3></header>
+        <div class="modal-content">
+            <input type="text" name="name" placeholder="刘笑笑">
+            <button class="btn">点击生成</button>
+        </div>
     </div>
     <a href="#!" class="modal-close" title="Close this modal" data-dismiss="modal" data-close="Close">&times;</a>
 </section>
