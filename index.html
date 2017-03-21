@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>在线编辑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="./css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="./css/froala_editor.css" rel="stylesheet" type="text/css">
-
-
-    <style>
-        body {
-            text-align: center;
-        }
-
-        section {
-            width: 80%;
-            margin: auto;
-            text-align: left;
-        }
-    </style>
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/colorpicker.min.css">
+  <style type="text/css">
+    .btn-group>.btn-group>.btn {
+      border-radius: 0;
+    }
+    .form-control {
+      border-radius: 0;
+    }
+  </style>
 </head>
-
 <body>
-  <section id="editor">
-      <div id='edit' style="margin-top: 30px;">
+  <section class="container" id="editor">
+    <div class="row">
+      <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-align-left"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-align-center"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-align-right"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" id="chage-background"><i class="fontbg-color glyphicon glyphicon-text-background"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" id="chage-fontcolor"><i class="font-color glyphicon glyphicon-stop"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-text-size"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-text-size"></i></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-erase"></i></button>
+        </div>
+    </div>
+        <textarea class="form-control" rows="20" id="textwarp"></textarea>
 
-        <h1>Click and edit</h1>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam in odio iaculis blandit. Nunc eu mauris sit amet purus viverra gravida ut a dui. Vivamus nec rutrum augue, pharetra faucibus purus. Maecenas non orci sagittis, vehicula lorem et, dignissim nunc. Suspendisse suscipit, diam non varius facilisis, enim libero tincidunt magna, sit amet iaculis eros libero sit amet eros. Vestibulum a rhoncus felis. Nam lacus nulla, consequat ac lacus sit amet, accumsan pellentesque risus. Aenean viverra mi at urna mattis fermentum. Curabitur porta metus in tortor elementum, in semper nulla ullamcorper. Vestibulum mattis tempor tortor quis gravida. In rhoncus risus nibh. Nullam condimentum dapibus massa vel fringilla. Sed hendrerit sed est quis facilisis. Ut sit amet nibh sem. Pellentesque imperdiet mollis libero.</p>
-
-        <p><a href="http://google.com" title="Aenean sed hendrerit">Aenean sed hendrerit</a> velit. Nullam eu mi dolor. Maecenas et erat risus. Nulla ac auctor diam, non aliquet ante. Fusce ullamcorper, ipsum id tempor lacinia, sem tellus malesuada libero, quis ornare sem massa in orci. Sed dictum dictum tristique. Proin eros turpis, ultricies eu sapien eget, ornare rutrum ipsum. Pellentesque eros nisl, ornare nec ipsum sed, aliquet sollicitudin erat. Nulla tincidunt porta vehicula.</p>
-
-        <p>Nullam laoreet imperdiet orci ac euismod. Curabitur vel lectus nisi. Phasellus accumsan aliquet augue, eu rutrum tellus iaculis in. Nunc viverra ultrices mollis. Curabitur malesuada nunc massa, ut imperdiet arcu lobortis sed. Cras ac arcu mauris. Maecenas id lectus nisl. Donec consectetur scelerisque quam at ultricies. Nam quis magna iaculis, condimentum metus ut, elementum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id tempus nisi.</p>
-      </div>
   </section>
-
-  <script src="./js/jquery-1.11.1.min.js"></script>
-  <script src="./js/froala_editor.min.js"></script>
-  <script src="./js/colors.min.js"></script>
-  <script src="./js/font_family.min.js"></script>
-  <script src="./js/font_size.min.js"></script>
-  <script src="./js/block_styles.min.js"></script>
-
-  <script>
-      $(function(){
-        $('#edit').editable({inlineMode: false})
-      });
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/colorpicker.min.js"></script>
+  <script type="text/javascript">
   </script>
+        <script>
+        $(function() { $('#chage-background').colorpicker().on('changeColor', function(e) { $('#textwarp')[0].style.backgroundColor = e.color.toString( 'rgba'); }); });
+        $(function() { $('#chage-fontcolor').colorpicker().on('changeColor', function(e) { $('#textwarp')[0].style.color = e.color.toString( 'rgba'); }); });
+        </script>
+
 </body>
 </html>
